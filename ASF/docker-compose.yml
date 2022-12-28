@@ -1,0 +1,8 @@
+version: '3'
+services:
+  ArchiSteamFarm:
+    image: "justarchi/archisteamfarm"
+    ports: "1242:1242"
+    volumes:
+      - "/var/lib/docker/volumes/_dataarchi/ASF/config:/app/config"
+    restart: "unless-stopped"
