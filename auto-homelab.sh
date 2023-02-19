@@ -17,17 +17,35 @@ echo "System updated - NFS server and Docker are running successfully"
 ############################
 
 #Ask for docker volume path
-input docker volume path
-    writing to conf file
-#Ask for caddyfile path
-input caddyfile path
-    writing to conf file
-
-input cloudflare subdomain
-    writing to caddyfile
-
-input port nummber
-    writing to caddyfile
+#echo "Enter docker volume path:"
+#read volume_path
 
 
 
+
+
+
+
+
+##############################
+#CADDY SECTION
+
+#Ask for Caddyfile path
+echo "Enter Caddyfile path:"
+read caddyfile_path
+
+#Ask for IP
+echo "Enter ip:"
+read ip
+
+#Ask for Domain
+echo "Enter Domain:"
+read domain
+
+#Ask for port number and add it to Caddyfile
+echo "Enter port number:"
+read port_number
+
+echo "$domain { 
+encode gzip 
+reverse_proxy $ip:$port_number }" >> "$caddyfile_path"
